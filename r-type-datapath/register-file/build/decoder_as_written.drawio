@@ -1,0 +1,16 @@
+<mxfile>
+  <diagram name="decoder">
+    <mxGraphModel dx="800" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="2" value="write_sel" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D5E8D4;strokeColor=#82B366;" vertex="1" parent="1"><mxGeometry x="40" y="60" width="100" height="40" as="geometry"/></mxCell>
+        <mxCell id="3" value="write_ena" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D5E8D4;strokeColor=#82B366;" vertex="1" parent="1"><mxGeometry x="40" y="180" width="100" height="40" as="geometry"/></mxCell>
+        <mxCell id="4" value="shl&lt;br&gt;$build\decoder_synth.v:17$shl$1" style="whiteSpace=wrap;html=1;rounded=0;fillColor=#DAE8FC;strokeColor=#6C8EBF;" vertex="1" parent="1"><mxGeometry x="240" y="60" width="140" height="60" as="geometry"/></mxCell>
+        <mxCell id="5" value="sel" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8CECC;strokeColor=#B85450;" vertex="1" parent="1"><mxGeometry x="460" y="60" width="100" height="40" as="geometry"/></mxCell>
+        <mxCell id="e0" value="write_sel" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;" edge="1" parent="1" source="2" target="4"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e1" value="sel" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;" edge="1" parent="1" source="4" target="5"><mxGeometry relative="1" as="geometry"/></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
