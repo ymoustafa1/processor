@@ -5,21 +5,30 @@ use ieee.numeric_std.all;
 
 package RF_Package is
 
-    type mux_input_array is array (natural range<>) of std_logic_vector(31 downto 0);
-    
+    type mux_input_array is array (0 to 31) of std_logic_vector(31 downto 0);
+
     component  D_Register_32 is
-        generic(n: Natural :=32);
         port(
             C: in std_logic; 
-            D : in std_logic_vector (n-1 downto 0);
-            Q : out  std_logic_vector (n-1 downto 0)
+            D : in std_logic_vector (31 downto 0);
+            Q : out  std_logic_vector (31 downto 0)
         );
         end component;
 
     component decoder is 
             port(
                 write_sel : in STD_LOGIC_VECTOR ( 4 downto 0 );
+                write_ena : in std_logic ;
                 sel : out STD_LOGIC_VECTOR (31 downto 0) 
             );
     end component;
+
+    component MUX is 
+            port(
+                read_sel : in STD_LOGIC_VECTOR (4 downto 0);
+                inputs : in mux_input_array;
+                data : out STD_LOGIC_VECTOR (31 downto 0 )
+            );
+    end component;
+
 end package;

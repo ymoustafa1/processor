@@ -16,7 +16,7 @@ architecture behaviour of D_Register_32 is
 begin
     process(C)
     begin
-        if C ='1'  then 
+        if C'event and C ='1'  then 
             Q<=D; 
         end if;
     end process;

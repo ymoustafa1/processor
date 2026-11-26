@@ -4,6 +4,7 @@ use ieee.numeric_std.all;
 
 entity decoder is
     port (
+        write_ena : in STD_LOGIC;
         write_sel : in STD_LOGIC_VECTOR ( 4 downto 0 );
         sel : out STD_LOGIC_VECTOR (31 downto 0)    
     );
@@ -14,7 +15,9 @@ signal temp :STD_LOGIC_VECTOR(31 downto 0);
 signal shift_amount : INTEGER range 0 to 31 ;
 
 begin
- temp <= x"00000001";
- shift_amount <= to_integer(unsigned(write_sel));
- sel<= STD_LOGIC_VECTOR(SHIFT_LEFT(unsigned(temp) , shift_amount)); 
+temp <= x"00000001";
+shift_amount <= to_integer(unsigned(write_sel));
+sel<= STD_LOGIC_VECTOR(SHIFT_LEFT(unsigned(temp) , shift_amount)) when write_ena = '1'
+ else (others => '0');
+
 end architecture;
