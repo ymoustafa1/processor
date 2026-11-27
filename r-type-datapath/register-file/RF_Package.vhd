@@ -11,6 +11,7 @@ package RF_Package is
         port(
             C: in std_logic; 
             D : in std_logic_vector (31 downto 0);
+            En: in std_logic;
             Q : out  std_logic_vector (31 downto 0)
         );
         end component;

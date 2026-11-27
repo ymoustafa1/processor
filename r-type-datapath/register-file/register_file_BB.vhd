@@ -30,15 +30,16 @@ begin
        write_ena => write_ena,
        sel=>dec_sel
    );
-reg_outputs(0) <= (others => '0');
 
+reg_outputs(0) <= (others => '0');
 mux1_inputs(0) <= reg_outputs(0);
 mux2_inputs(0) <= reg_outputs(0);
 
 gen_registers : for i in 1 to 31 generate
    registers : D_Register_32
     port map(
-       C => (clk and dec_sel(i)),
+       C => clk ,
+       En=>dec_sel(i),
        D => write_data,
        Q => reg_outputs(i)
    );

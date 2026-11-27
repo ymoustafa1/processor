@@ -31,50 +31,48 @@ end process;
 
 stim_proc : process
 begin
-    write_ena  <= '0';
+    write_ena<='0';
     write_sel  <= "00000";
     write_data <= x"00000000";
     read_sel1  <= "00000";
     read_sel2  <= "00000";
-    wait for clk_period/2;
+    wait for 40 ns; 
 
     write_ena  <= '1';
     write_sel  <= "00001";
     write_data <= x"000000FF";
     read_sel1  <= "00001";
     read_sel2  <= "00001";
-    wait for clk_period-10 ns;
+    wait for clk_period ; 
 
-        write_sel  <= "00010";
-    wait for 10 ns;
     write_ena  <= '1';
+    write_sel  <= "00010";
     write_data <= x"AABBCCDD";
     read_sel1  <= "00001";
     read_sel2  <= "00010";
-    wait for clk_period- 10 ns;
+    wait for clk_period; 
 
-        write_sel  <= "00001";
-        write_ena  <= '0';
-wait for 10 ns;
+    write_ena  <= '0';
+    write_sel  <= "00001";
     write_data <= x"12345678";
     read_sel1  <= "00001";
-    wait for clk_period - 10 ns;
+    read_sel2  <= "00010";
+    wait for clk_period; 
 
-    write_sel  <= "00000";
-wait for 10 ns;
     write_ena  <= '1';
+    write_sel  <= "00000";
     write_data <= x"00000001";
-    wait for clk_period -10 ns;
+    read_sel1  <= "00000";
+    wait for clk_period;
 
+    write_ena  <= '1';
     write_sel  <= "11111";
-wait for 10 ns ;
-
     write_data <= x"80000000";
     read_sel1  <= "00000";
     read_sel2  <= "11111";
-    wait for clk_period;
+    wait for clk_period; 
 
-    write_ena <= '0';
+    write_ena  <= '0';
     wait;
 end process;
     
